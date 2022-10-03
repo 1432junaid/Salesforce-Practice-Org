@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <apiVersion>54.0</apiVersion>
+    <decisions>
+        <name>run_API</name>
+        <label>run API</label>
+        <locationX>182</locationX>
+        <locationY>278</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>API1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Api_list</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>API 1</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>API_1_screen</targetReference>
+            </connector>
+            <label>API1</label>
+        </rules>
+    </decisions>
+    <dynamicChoiceSets>
+        <name>Api_list</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>All_Api__c</picklistField>
+        <picklistObject>Opportunity</picklistObject>
+        <sortOrder>Asc</sortOrder>
+    </dynamicChoiceSets>
+    <interviewLabel>Check API {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Check API</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <screens>
+        <name>API_1_screen</name>
+        <label>API 1 screen`</label>
+        <locationX>50</locationX>
+        <locationY>398</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>Selected_Api_choice</name>
+            <fieldText>&lt;p&gt;selected api = {!Select_API}&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>API_Calls</name>
+        <label>API Calls</label>
+        <locationX>182</locationX>
+        <locationY>158</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>run_API</targetReference>
+        </connector>
+        <fields>
+            <name>Select_API</name>
+            <choiceReferences>Api_list</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Select API</fieldText>
+            <fieldType>RadioButtons</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>Selected_api</name>
+            <fieldText>&lt;p&gt;{!Select_API}&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>displayOpportunityRec</name>
+            <fieldText>&lt;p&gt;opp Id  = {!opportunityId}&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>Record_id</name>
+            <fieldText>&lt;p&gt;record Id  = {!recordId}&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>API_Calls</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>opportunityId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <elementReference>$Flow.CurrentRecord</elementReference>
+        </value>
+    </variables>
+    <variables>
+        <name>recordId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <elementReference>$Flow.CurrentRecord</elementReference>
+        </value>
+    </variables>
+</Flow>
