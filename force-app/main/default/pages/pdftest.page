@@ -1,0 +1,5 @@
+<apex:page standardController="Invoice__c" renderAs="pdf"  applyBodyTag="false" lightningStylesheets="true">
+   <apex:pageBlock title="Invoice">
+		<apex:outputText >PDF Generated !! </apex:outputText>
+   </apex:pageBlock>
+</apex:page>

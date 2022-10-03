@@ -1,0 +1,15 @@
+<apex:page sidebar="false" standardController="Account" >
+<apex:pageBlock >
+    <apex:form >
+        <apex:pageBlockSection columns="2">
+            <apex:outputText value="check {0} and then see {1}">hello output</apex:outputText>
+            <apex:param value=""/>
+          <apex:pageBlockSectionItem > 
+          <input type="text" name="accName" value="{!Account.Name}" label="Account Name" reuqired="true"/>
+             <apex:inputfield value="{!Account.Type}" />
+             </apex:pageBlockSectionItem> 
+            <apex:commandButton action="{!save}" value="save"/>
+        </apex:pageBlockSection>
+      </apex:form>
+</apex:pageBlock>
+</apex:page>

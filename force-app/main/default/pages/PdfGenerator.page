@@ -1,0 +1,24 @@
+<apex:page StandardController="Invoice__c" extensions="InvoiceControllerNew"  renderAs="pdf" applyBodyTag="false" lightningStylesheets="true">
+    
+    <apex:pageBlock >
+        <apex:pageBlockSection >
+            <apex:outputText value="{!inv.Name}" styleClass="companyName"/><br/><br/> 
+            <apex:outputText value="{!inv.Invoice_total_price__c}" styleClass="companyName"/><br/>
+            <apex:outputText value="{!inv.Invoice_Desc__c}" styleClass="companyName"/><br/>
+            <apex:outputText value="{!inv.id}" styleClass="companyName"/><br/>  
+            <br/><br/><br/><br/>
+        </apex:pageBlockSection>
+    </apex:pageBlock>        
+    
+    <apex:pageBlock title="Hello Invoice">
+        You are viewing the {!inv.Name} account.
+    </apex:pageBlock>
+    <apex:pageBlock title="Invoice information">
+        <apex:PageBlockSection >
+<!--            <apex:outputText value="{!inv.Name}" styleClass="companyName"/><br/><br/> -->
+            <apex:outputText value="{!inv.Invoice_total_price__c}" styleClass="companyName"/><br/>
+            <apex:outputText value="{!inv.Invoice_Desc__c}" styleClass="companyName"/><br/>
+            <apex:outputText value="{!inv.id}" styleClass="companyName"/><br/>  
+        </apex:PageBlockSection>
+    </apex:pageBlock>    
+</apex:page>

@@ -1,0 +1,14 @@
+<template>
+    <lightning-card title="Display LWC" icon-name="custom:custome9">
+        <lightning-layout-item padding="around-small">
+            {Greeteing}
+        </lightning-layout-item>
+        <template if:true={Message}>
+            <lightning-layout-item padding="around-small">
+                {Message}
+            </lightning-layout-item>
+        </template>
+        
+    </lightning-card>
+
+</template>

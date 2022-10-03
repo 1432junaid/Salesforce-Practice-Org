@@ -1,0 +1,95 @@
+<apex:page >
+    <html>
+        <head>
+            <link href="https://techmatrix-5c-dev-ed--c.visualforce.com/resource/1622725878000/css1?" rel = "stylesheet" />
+            <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1"/>
+        </head>
+        <body>
+            
+    <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST" >
+
+        <input type="hidden" name="oid" value="00D5g000004x0Bi"/>   
+        <input type="hidden" name="retURL" value="http://www.salesforce.com"/>
+
+		
+
+				<input placeholder = "First Name "  id="first_name" maxlength="40" name="first_name" size="20" type="text" />
+
+				<input placeholder = "Last Name " id="last_name" maxlength="80" name="last_name" size="20" type="text" />
+
+				<input placeholder = "Email " id="email" maxlength="80" name="email" size="20" type="text" />
+
+				<input placeholder = "Company" id="company" maxlength="40" name="company" size="20" type="text" />
+		
+				<input placeholder = "City " id="city" maxlength="40" name="city" size="20" type="text" />
+
+				<input placeholder = "State " id="state" maxlength="20" name="state" size="20" type="text" />
+
+        		<input  type="submit" name="submit" />
+	
+            </form>
+            <style type='text/css'>
+	.embeddedServiceHelpButton .helpButton .uiButton {
+		background-color: #005290;
+		font-family: "Arial", sans-serif;
+	}
+	.embeddedServiceHelpButton .helpButton .uiButton:focus {
+		outline: 1px solid #005290;
+	}
+</style>
+
+<script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
+<script type='text/javascript'>
+	var initESW = function(gslbBaseURL) {
+		embedded_svc.settings.displayHelpButton = true; //Or false
+		embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
+
+		//embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
+		//embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
+
+		//embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
+		//embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
+
+		// Settings for Chat
+		//embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
+			// Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
+			// Returns a valid button ID.
+		//};
+		//embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
+		//embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
+		//embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
+
+		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
+		embedded_svc.settings.entryFeature = 'LiveAgent';
+
+		embedded_svc.init(
+			'https://techmatrix-5c-dev-ed.my.salesforce.com',
+			'https://junaid1432-developer-edition.ap24.force.com/liveAgentSetupFlow',
+			gslbBaseURL,
+			'00D5g000004x0Bi',
+			'mychat1',
+			{
+				baseLiveAgentContentURL: 'https://c.la2-c1-ukb.salesforceliveagent.com/content',
+				deploymentId: '5725g000000c2eX',
+				buttonId: '5735g000000c4v4',
+				baseLiveAgentURL: 'https://d.la2-c1-ukb.salesforceliveagent.com/chat',
+				eswLiveAgentDevName: 'mychat1',
+				isOfflineSupportEnabled: false
+			}
+		);
+	};
+
+	if (!window.embedded_svc) {
+		var s = document.createElement('script');
+		s.setAttribute('src', 'https://techmatrix-5c-dev-ed.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+		s.onload = function() {
+			initESW(null);
+		};
+		document.body.appendChild(s);
+	} else {
+		initESW('https://service.force.com');
+	}
+</script>
+        </body>
+    </html>
+</apex:page>

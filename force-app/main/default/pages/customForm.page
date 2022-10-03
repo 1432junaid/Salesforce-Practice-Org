@@ -1,0 +1,13 @@
+<apex:page controller="CustomController">    
+    <apex:form >
+      <apex:pageBlock title="Pizza Details">
+          <apex:pageBlockSection >
+          	<apex:inputText value="{!Name}"/>  
+          </apex:pageBlockSection>
+             
+          	<apex:pageblockButtons >
+		      	<apex:commandButton value="Save" action="{!save}" />
+    		</apex:pageblockButtons>
+        </apex:pageBlock>
+     </apex:form>
+</apex:page>

@@ -1,0 +1,28 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="favcolors" type = "String[]" default = "red, yellow, black" />
+    <aura:attribute name="message" type = "String" default = "this is a secret message"/> 
+    <aura:attribute name="text" type = "String" />
+    
+    <lightning:card> 
+        {!v.message}
+        <br/>
+        <aura:iteration items="{!v.favcolors}" var="f">
+            {!f}
+            <br/>
+        </aura:iteration>
+    </lightning:card>
+    
+    <lightning:button onclick="{!c.getString}" label="Update Text" />
+    <aura:handler name="init" value="{!this}" action="{!c.directLoad}" />
+    <aura:attribute name="firstName" type="String" />
+    <div class="row">
+        <h2 class="header">Live Input Text</h2>
+        <lightning:input name="input" value="{!v.firstName}" placeholder="Enter your name" label="text field" ></lightning:input>
+        <p>
+            First Name : {!v.firstName}
+        </p>
+    </div>
+
+
+
+</aura:component>

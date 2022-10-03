@@ -1,0 +1,22 @@
+<apex:page controller="StAccount" > 
+      
+           <apex:form >
+                     <apex:pageBlock title="Accounts">
+        <apex:pageBlockTable value="{!checkData}" var="a">
+            <apex:column headerValue="Delete">
+             <apex:inputCheckbox value="{!a.checked}"/>
+        </apex:column>
+          
+             	<apex:column value="{!a.acc.Name}"/>
+              	<apex:column value="{!a.acc.Type}"/>
+            	<apex:column value="{!a.acc.industry}"/>
+            <apex:column value="{!a.acc.AccountNumber}"/>
+            	<apex:column value="{!a.acc.AnnualRevenue}"/>             	
+           </apex:pageBlockTable>  
+                        <apex:pageblockButtons >
+      <apex:commandButton value="Delete" action="{!deleteAccount}" />
+    </apex:pageblockButtons>       
+               </apex:pageBlock>
+               </apex:form>
+     
+</apex:page>

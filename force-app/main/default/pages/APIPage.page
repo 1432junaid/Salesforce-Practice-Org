@@ -1,0 +1,13 @@
+<apex:page controller="APIPageControler" >
+    <apex:form >
+    <apex:pageBlock >
+           <apex:pageBlockSection >
+               <apex:inputText value="{!city}" label="City Name" /><br/>
+               
+               <apex:outputText label="latitude " value="{!lat}"></apex:outputText><br/>
+               <apex:outputText label="longitude " value="{!lng}"></apex:outputText><br/>
+               <apex:commandButton action="{!save}"  value="save"/>
+    		</apex:pageBlockSection>
+         </apex:pageBlock>
+    </apex:form>
+</apex:page>

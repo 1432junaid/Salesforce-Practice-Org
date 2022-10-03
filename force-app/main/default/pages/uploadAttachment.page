@@ -1,0 +1,16 @@
+<apex:page controller="uplaodAttachmentController"  showHeader="false" standardStyleSheets="true" sidebar="false">    
+    <apex:form >
+        <apex:pageBlock title="Uplaod file">
+            <apex:pageBlockSection columns="1">
+                <apex:inputField label="File name" value="{!notesAndAttachment.File_Name__c}"/>
+<!--
+<apex:inputField value="{!notesAndAttachment.file__c}"/>
+-->
+                <apex:inputFile value="{!notesAndAttachment.file__c}"></apex:inputFile><br/>
+            </apex:pageBlockSection>
+            <apex:commandButton action="{!save}" value="save" />
+            
+            
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
