@@ -17,12 +17,13 @@ public class AnimalLocator {
         request.setHeader('Content-Type', 'application/json');
 		request.setEndpoint(url);
         request.setMethod('GET');
-        HttpResponse response = http.send(request);    
+        HttpResponse response = http.send(request);
+        String result;
         if(response.getStatusCode() == 200 ){                    
             AnimalLocator obj = (AnimalLocator)System.JSON.deserialize(response.getBody(),AnimalLocator.class);
-            String result = obj.animal.name;		
-			return result;
+            result = obj.animal.name;		
         }
-        return null;
+        return result;
+
     }
 }
