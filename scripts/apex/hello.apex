@@ -28,3 +28,11 @@ System.debug( objSortArray.sortArrayAsc(listOfInteger) );
 
 
 
+List<String> availableValues = new List<String>{'Red','Green','Blue','White','Black'};
+Integer listSize = availableValues.size() - 1;
+Integer randomNumber = Integer.valueof((Math.random() * listSize));
+System.debug('Random number >> '+randomNumber);
+String randomString= availableValues[randomNumber];
+System.debug('randomString is'+randomString);
+
+
