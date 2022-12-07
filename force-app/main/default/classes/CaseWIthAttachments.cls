@@ -19,6 +19,16 @@ global with sharing class CaseWIthAttachments {
         result.caseId = objCase.Id;
         System.debug( 'case Id  >> '+objCase.Id);
         System.debug('fileData ?? '+createRequest.attachments);
+    /*    
+        Attachment myAttachment = new Attachment();
+        //V1.0 Changes starts
+        myAttachment.Body = EncodingUtil.base64Decode(String.valueOf(createRequest.attachments.fileData));
+        //V1.0 Changes end
+        myAttachment.Name = createRequest.attachments.fileName;
+        myAttachment.ParentId = objCase.Id;
+        insert myAttachment;
+
+    */
        
         if(createRequest.attachments != null && createRequest.attachments.size() > 0){
             List<sObject> listOfAttachment = new List<sObject>();
@@ -45,6 +55,7 @@ global with sharing class CaseWIthAttachments {
         public String status {get;set;}
         public String origin {get;set;}
         public List<Attachments> attachments;
+       // Attachments attachments;
     }
 
     global class Attachments {
