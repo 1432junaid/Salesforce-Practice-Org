@@ -1,8 +1,5 @@
 <template>
-    <lightning-card title = "Assingment 1" >
-        <template if:true={areDetailsVisible}>
-            <div class="slds-var-m-around_medium">Hello from {objectApiName} and Id is = {recordId}   </div>
-        </template>
-        <lightning-button variant="brand" label="say hello" title="Successful action" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+    <lightning-card title = "hello" >
+        <div class="slds-var-m-around_medium">Hello, {greeting}!</div>
     </lightning-card>    
 </template>
