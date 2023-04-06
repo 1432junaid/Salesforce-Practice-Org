@@ -1,10 +1,14 @@
 <template>
-    <lightning-card title= "Static Title">
-        {myTitle}
-        <h1> this is heading 1 </h1>
-        <p>this is paragraph.</p>
-        <lightning-button variant="brand" title="Clict me!" label="Show me" onclick={handleClick}></lightning-button>
+    <lightning-card title= "Practice LWC">
+        <lightning-input name="firstName" type="text" label="First Name" placeholder="First Name" onchange={handleChange}></lightning-input>
+        <lightning-input name="lastName" type="text" label="Last Name" placeholder="Last Name" onchange={handleChange}></lightning-input>
     </lightning-card>
-    <lightning-button variant="brand" title="Clict me!" label="Show me" onclick={handleClick}></lightning-button>
+    <lightning-card title="Updated values">
+        <h1>
+            updated first Name : <b>{fullName.firstname}</b>  </br>
+            updated first Name : <b>{fullName.lastname}</b>
+        </h1>
+    </lightning-card>
 
+    <lightning-button variant="brand" label="Save" onclick={handleClick}></lightning-button>
 </template>

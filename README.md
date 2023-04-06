@@ -16,3 +16,18 @@ The `sfdx-project.json` file contains useful configuration information for your 
 - [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 - [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
 - [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+
+
+
+# Wire Decorator
+## Hindi 
+
+wire reactive nature hota hai means jb bi salesfoce org ke data me update hota hai to uski value automatically update ho ke LWC me aajati hai jiski property wire decorator se use ki hogi.
+
+@AuraEnabled(cacheable=true) without mention this you can not connect class to lwc, in imperative method we can not need to use cacheable=true.
+
+## English
+To read salesforce data, Lwc use a reactive wire service. When the wire service provisins data, the component re-renders
+
+Componenet use @wire in their JavaScript class to specify a wire adaptor or an Apex method.
+
