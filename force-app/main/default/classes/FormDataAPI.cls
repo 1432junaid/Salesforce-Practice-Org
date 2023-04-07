@@ -13,6 +13,8 @@ public class FormDataAPI {
         httpRequest.setBodyAsBlob(requestBody);
         httpRequest.setMethod('POST');
         httpRequest.setTimeout(12000);
+       // httpRequest.setHeader(key, value);
+       // httpRequest.setBody(body);
         httpResponse = http.send(httpRequest);
         System.debug(' >>> '+httpResponse);
         

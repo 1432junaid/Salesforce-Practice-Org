@@ -31,9 +31,6 @@ export default class PracticeLWC extends LightningElement {
         this.showToastFunction(this.toastTitle);            //calling a method
     }
 
-
-
-    // track decorator is reactive it re-render the DOM if any changes occure
     @track fullName = {firstname : "", lastname : ""}
     handleChange(event){
         const field = event.target.name;

@@ -1,7 +1,5 @@
-public class QueueOne implements Queueable{
-    public QueueOne(){
-        
-    }
+public class QueueOne implements Queueable, Database.AllowsCallouts{
+   
     
     public void execute(QueueableContext QC){
         //APIPageControler.save();
