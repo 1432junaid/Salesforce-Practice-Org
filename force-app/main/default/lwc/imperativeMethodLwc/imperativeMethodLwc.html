@@ -1,0 +1,33 @@
+<template>
+    <lightning-card title="Imperative Method">
+
+        <lightning-button
+            label={onClicklabel}
+            variant="brand"
+            onclick={handleClick}>
+        </lightning-button>
+        
+        <div style="height: 200px" if:true={showData}>
+            <!-- lightning data table Start -->
+            <lightning-datatable 
+                key-field="Id" 
+                data={data} 
+                columns={columns}>
+            </lightning-datatable>
+            <!-- lightning data table End  -->
+        </div>
+    </lightning-card>
+    
+
+    <!-- how to use for each -->
+
+    <!-- <lightning-card title=" for each ">
+        <p>{data.Name}</p>
+        <template if:true={data}>
+            <template for:each={data} for:item="itr">
+                <h2 key={itr.id}>{itr.Name}</h2>
+            </template>
+        </template>
+    </lightning-card> -->
+
+</template>
