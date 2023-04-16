@@ -1,0 +1,19 @@
+<template>
+    <lightning-card title="All Contacts">
+        <lightning-button 
+            variant="brand"
+            label={toggleShowHide}
+            onclick={handleClick}>
+        </lightning-button>
+
+        <div style="height: 200px" if:true={showData}>
+            <lightning-datatable
+                key-field="Id" 
+                data={data}
+                columns={columns}
+                onrowselection={getSelectedRow}
+            ></lightning-datatable>
+        </div>
+        
+    </lightning-card>
+</template>
