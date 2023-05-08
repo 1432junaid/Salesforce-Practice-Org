@@ -1,0 +1,14 @@
+<template>
+    <lightning-card title={cardTitle}>        
+        <lightning-record-view-form 
+        record-id={recordId}
+        object-api-name={objectApiName}
+        >
+        <div class="slds-box">
+            <lightning-output-field field-name={PizzaName}></lightning-output-field>
+            <lightning-output-field field-name={PizzaPrice}></lightning-output-field>
+            <lightning-output-field field-name={PizzaQuality}></lightning-output-field>
+        </div>
+        </lightning-record-view-form>
+    </lightning-card>    
+</template>
