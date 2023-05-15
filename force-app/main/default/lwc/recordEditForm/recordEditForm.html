@@ -5,8 +5,8 @@
         record-id={recordId}
         object-api-name={objectApiName}>
         <!-- <lightning-input-field field-name="FirstName"></lightning-input-field> -->
-        <lightning-input-field field-name={pizzaPrice}></lightning-input-field>
-        <lightning-input-field field-name={pizzaQuality}></lightning-input-field>
+        <lightning-input-field field-name={pizzaPrice} onchange={handleOnChange}></lightning-input-field>
+        <lightning-input-field field-name={pizzaQuality} onchange={handleOnChange}></lightning-input-field>
         <lightning-button
         class="slds-m-around_large"
         variant="brand"
@@ -14,6 +14,7 @@
         name="update"
         label="Update"
         onclick={updateHandler}
+        disabled={disableButton}
         >
         </lightning-button>
         </lightning-record-edit-form>
