@@ -1,0 +1,13 @@
+<template>
+    <lightning-card title="To Do List">
+        <div>
+            <lightning-output-field field-name="Task__c"></lightning-output-field>
+        </div>
+       <div>
+        <lightning-input-field  field-name="Task__c" onchange={handleOnChange}></lightning-input-field>
+       </div>
+       <div>
+        <lightning-button label="Add" variant="brand"></lightning-button>
+       </div>
+    </lightning-card>
+</template>
