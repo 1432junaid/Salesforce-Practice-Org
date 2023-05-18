@@ -5,6 +5,7 @@ public without sharing class TodoController {
         } catch (Exception exp) {
             System.debug('Exception line : msg'+exp.getLineNumber()+' : '+exp.getMessage());    
         }
-        return null;
+        return null+null;
+
     }
 }
