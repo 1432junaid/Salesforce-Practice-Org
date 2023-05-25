@@ -24,7 +24,7 @@ export default class TodoLwc extends LightningElement {
 
    
     handleOnChange(event){
-        console.log('>>> handleOnChange',event.target.value);
+        console.log('>>> handleOnChange ',event.target.value);
         this.task = event.target.value;
     }
 
@@ -32,9 +32,9 @@ export default class TodoLwc extends LightningElement {
         console.log('>>> input');
         console.log('todo >> list >> ',this.todoList);
         if(this.task){
-            console.log('>>> text',this.task);
+            console.log('>>> text >>>>',this.task);
             this.insertTodolist1();
-            setTimeout(getRecord(), 2000);
+            setTimeout(this.getRecord(), 2000);
         }
 
     }

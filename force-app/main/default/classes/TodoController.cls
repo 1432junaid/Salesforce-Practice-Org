@@ -13,15 +13,13 @@ public without sharing class TodoController {
 
     @AuraEnabled(cacheable = true)
     public static void insertTodolist(String text){
-        system.debug('>> text'+text);
-        
-
+        system.debug('>> text : '+text);
         try {
             if(!String.isBlank(text)){
                 insert new Todo_List__c(Task__c = text);
             }
         } catch (Exception e) {
             throw new AuraHandledException(e.getMessage());
-        }
+        } 
     }
 }
