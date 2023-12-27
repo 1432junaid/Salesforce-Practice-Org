@@ -1,19 +1,32 @@
 <template>
     <lightning-card title="All Contacts">
-        <lightning-button 
-            variant="brand"
-            label={toggleShowHide}
-            onclick={handleClick}>
-        </lightning-button>
-
-        <div style="height: 200px" if:true={showData}>
-            <lightning-datatable
-                key-field="Id" 
-                data={data}
-                columns={columns}
-                onrowselection={getSelectedRow}
-            ></lightning-datatable>
-        </div>
+        <div>
+            <div class="slds-m-left_x-small">
+                <lightning-button 
+                variant="brand"
+                label={toggleShowHide}
+                    onclick={handleClick}>
+                </lightning-button>
+            </div>
+            
+            <div class="slds-m-right_x-small" if:true={delButton}>
+                <lightning-button  
+                    variant="brand"
+                    label="Delete"
+                    onclick={handleDelClick}>
+                </lightning-button>
+            </div>   
+        </div>      
         
-    </lightning-card>
+        <lightning-card if:true={showData}>
+            <div style="height: 200px" >
+                <lightning-datatable
+                    key-field="Id" 
+                    data={data}
+                    columns={columns}
+                    onrowselection={getSelectedRow}
+                ></lightning-datatable>
+            </div>
+        </lightning-card>
+    </lightning-card>        
 </template>

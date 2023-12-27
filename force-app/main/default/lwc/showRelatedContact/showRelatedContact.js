@@ -13,31 +13,45 @@ export default class ShowRelatedContact extends LightningElement {
     @track data = [];
     @track columns = columns;
     @track showData = false;
+    delButton = false;
 
     handleClick(event){
         const label = event.target.label;
+
+        alert('selected button >> '+event.target.label);
         if (label === "Show Contacts") {
             this.toggleShowHide = "Hide Contacts";
             this.showData = true;
-        } else if(label === "Hide Contacts") {
+        }else if(label === "Hide Contacts") {
             this.toggleShowHide = "Show Contacts";
             this.showData = false;
         }
     }
 
-    connectedCallback(){
-        window.alert("connected Call back with id "+this.recordId);
+    handleDelClick(event){
+        this.delButton = true;
+        label = event.target.label;
+        alert('selected button >> '+event.target.label);
+    }
 
+    connectedCallback(){
         getAccountContacts({recordId : this.recordId})
         .then(result => {
             this.data = result;
-            // window.alert("recordId : "+this.recordId);
         })
         .catch(error => {
             console.log("Error occured");
         })
+    }
 
-        // window.alert("data -> "+this.data);
+
+    onRowSelection( event ) {
+        this.delButton = true;
+        // const selectedRows = event.detail.selectedRows;
+        // console.log(
+        //     'selectedRows are ',
+        //     JSON.stringify( selectedRows )
+        // );
     }
     
 

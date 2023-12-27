@@ -11,6 +11,12 @@ trigger AccountTrigger on Account (before insert, before update, before delete, 
             System.debug('Trigger -> before update');
             //new AccountTriggerHelper().run();
         }
+        
+        if(Trigger.isDelete){
+            System.debug('>>> Trigger new isBefore Delete >> '+Trigger.new);
+            System.debug('>>> Trigger old isBefore Delete >> '+Trigger.old);
+            AccountTriggerHandler.restrictAccountDelete(Trigger.old);
+        }
     }
 //--------------------//------------------//After Context--//--------------------//--------------------//--------------------
        
@@ -21,6 +27,11 @@ trigger AccountTrigger on Account (before insert, before update, before delete, 
         }
         if(Trigger.isUpdate) {					//after Insert
             
+        }
+        
+        if(Trigger.isDelete){
+            System.debug('>>> Trigger new isAfter Delete >> '+Trigger.new);
+            System.debug('>>> Trigger old isAfter Delete >> '+Trigger.old);
         }
     }
 }

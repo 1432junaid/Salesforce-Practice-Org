@@ -3,7 +3,7 @@ import getLastAccount from '@salesforce/apex/MyUtility.getLastAccount';
 
 export default class ComboBoxLwc extends LightningElement {
     value = "JD";
-    @track listOfAccount;
+    @track listOfAccount = [];
     
     connectedCallback(){
         this.getLastAccount();

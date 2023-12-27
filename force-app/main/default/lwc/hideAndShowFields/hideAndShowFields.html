@@ -1,0 +1,191 @@
+<template>
+    <lightning-card>
+        <lightning-tabset>
+            <lightning-tab label="Income"> 
+                <div>                    
+                    <!-- <lightning-layout vertical-align="stretch" multiple-rows="true" class="x-large"> -->
+
+
+                         <!-- -----------------Customer Type : Taxi Driver-----------------  Start-->
+
+                        <!-- <lightning-layout-item flexibility="auto" padding="around-small" class="custom-box">
+                            <div class="set-width">
+                                <lightning-combobox
+                                    label="Car"
+                                    options={picklistValuesOfCar}
+                                ></lightning-combobox>
+                            </div>
+                            <div class="set-width">
+                                <lightning-combobox
+                                    label="Driver"
+                                    options={picklistValuesOfDriver}
+                                ></lightning-combobox>
+                            </div>
+                        </lightning-layout-item>
+
+                        <lightning-layout-item flexibility="auto" padding="around-small" class="custom-box">
+                            <div class="set-width">
+                                <lightning-input type="number" label="No of vehicles" ></lightning-input>
+                            </div>
+                            <div class="set-width">
+                                <lightning-input type="number" label="Average earning per day"></lightning-input>
+                            </div>
+                        </lightning-layout-item>
+                        <lightning-layout-item flexibility="auto" padding="around-small" class="custom-box">
+                            <div class="set-width">
+                                <lightning-input type="number" label="Average Expenses per day"></lightning-input>
+                            </div>
+                            <div class="set-width">
+                                <lightning-input type="number" label="Permit Rentals per day"></lightning-input>
+                            </div>
+                        </lightning-layout-item>
+
+                        <lightning-layout-item flexibility="auto" padding="around-small" class="custom-box">
+                            <div class="set-width">
+                                <lightning-input type="number" label="Income per day"></lightning-input>
+                            </div>
+                            <div class="set-width">
+                                <lightning-input type="number" label="Average no of trips per day" ></lightning-input>
+                            </div>
+                        </lightning-layout-item>
+
+                        <lightning-layout-item flexibility="auto" padding="around-small" class="custom-box">
+                            <div class="set-width">
+                                <lightning-input type="number" label="Average trip cost per day"></lightning-input>
+                            </div>
+                            <div class="set-width">
+                                <lightning-input type="number" label="Rent per day"></lightning-input>
+                            </div>
+                        </lightning-layout-item>
+                        <lightning-layout-item flexibility="auto" padding="around-small" class="custom-box">
+                            <div class="set-width">
+                                <lightning-input type="number" label="Average earning per day"></lightning-input>
+                            </div>
+                        </lightning-layout-item> -->
+               
+                        <!-- -------------------- Customer Type : Auto Driver   ----------------  -->
+
+
+                        <!-- <lightning-layout-item flexibility="auto" padding="around-small" class="custom-box">
+                            <div class="set-width">
+                                <lightning-combobox
+                                    label="Location"
+                                    options={picklistValuesOfLocation}
+                                ></lightning-combobox>
+                            </div>
+                            <div class="set-width">
+                                <lightning-combobox
+                                    label="Auto"
+                                    options={picklistValuesOfSetup}
+                                ></lightning-combobox>
+                            </div>
+                        </lightning-layout-item>
+
+                        <lightning-layout-item flexibility="auto" padding="around-small" class="custom-box">
+                            <div class="set-width">
+                                <lightning-input type="number" label="No of vehicles" ></lightning-input>
+                            </div>
+                            <div class="set-width">
+                                <lightning-input type="number" label="Expenses per day"></lightning-input>
+                            </div>
+                        </lightning-layout-item>
+
+                        <lightning-layout-item flexibility="auto" padding="around-small" class="custom-box">
+                            <div class="set-width">
+                                <lightning-input type="number" label="Rent per day"></lightning-input>
+                            </div>
+                        </lightning-layout-item> -->
+
+
+                <!-- --------------------------   Customer Type : Pan Shop ----------------------------------------------- -->
+
+                        <!-- <lightning-layout-item flexibility="auto" padding="around-small" class="custom-box">
+                            <div class="set-width">
+                                <lightning-combobox
+                                    label="Dealer type"
+                                    options={picklistValuesOfDealer}
+                                ></lightning-combobox>
+                            </div>
+                            <div class="set-width">
+                                <lightning-combobox
+                                    label="Shop set up"
+                                    options={picklistValuesOfSetup}
+                                ></lightning-combobox>
+                            </div>
+                        </lightning-layout-item>
+
+                        <lightning-layout-item flexibility="auto" padding="around-small" class="custom-box">
+                            <div class="set-width">
+                                <lightning-input type="number" label="Assessed Income per day" ></lightning-input>
+                            </div>
+                        </lightning-layout-item> -->
+
+                        
+                  <!-- -------------------- Customer Type : Tailor  ----------------  -->
+
+                 
+                        <!-- <lightning-layout-item flexibility="auto" padding="around-small" class="custom-box">
+                            <div class="set-width">
+                                <lightning-input type="number" label=" Average No of Shirt processed per month" ></lightning-input>
+                            </div>
+                            <div class="set-width">
+                                <lightning-input type="number" label=" Average No of Pant processed per month" ></lightning-input>
+                            </div>
+                        </lightning-layout-item>
+                        <lightning-layout-item flexibility="auto" padding="around-small" class="custom-box">
+                            <div class="set-width">
+                                <lightning-input type="number" label=" Average No of Safari processed per month" ></lightning-input>
+                            </div>
+                            <div class="set-width">
+                                <lightning-input type="number" label=" Average No of Suit processed per month" ></lightning-input>
+                            </div>
+                        </lightning-layout-item>
+                        <lightning-layout-item flexibility="auto" padding="around-small" class="custom-box">
+                            <div class="set-width">
+                                <lightning-input type="number" label=" Average No of Blouse processed per month" ></lightning-input>
+                            </div>
+                            <div class="set-width">
+                                <lightning-input type="number" label=" Average No of Dress processed per month" ></lightning-input>
+                            </div>
+                        </lightning-layout-item>
+                        <lightning-layout-item flexibility="auto" padding="around-small" class="custom-box">
+                            <div class="set-width">
+                                <lightning-input type="number" label=" Average No of Suit set processed per month" ></lightning-input>
+                            </div>
+                            <div class="set-width">
+                                <lightning-input type="number" label=" Average No of Kurta processed per month" ></lightning-input>
+                            </div>
+                        </lightning-layout-item> -->
+
+
+                    <!-- </lightning-layout> -->
+
+                </div>
+                <div>
+                    <lightning-layout multiple-rows>                            
+                            <lightning-layout-item size="12" padding="horizontal-small" small-device-size="6"
+                            medium-device-size="4" large-device-size="2" style="display:none;">
+                                <div class="set-width">
+                                    <lightning-combobox
+                                    label="Car"
+                                    options={picklistValuesOfCar}
+                                    ></lightning-combobox>
+                                </div>
+                            </lightning-layout-item>
+
+                            <lightning-layout-item size="12" padding="horizontal-small" small-device-size="6"
+                            medium-device-size="4" large-device-size="2" style="display:none;">
+                                <div class="set-width">
+                                <lightning-combobox
+                                label="Driver"
+                                    options={picklistValuesOfDriver}
+                                    ></lightning-combobox>
+                                </div>
+                            </lightning-layout-item>
+                    </lightning-layout>
+                </div>
+            </lightning-tab>
+
+        </lightning-tabset>
+    </lightning-card>
+</template>
