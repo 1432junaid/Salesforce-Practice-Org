@@ -53,11 +53,17 @@ jobs:
       - name: 'Get JWT Key and store in server.key'
         run: echo "${{ secrets.CONSUMER_SECRET }}" > server.key
 
-      # Authenticate to org
-      - name: 'Authenticate to practice1 Org'
-        run: sf org login jwt --client-id ${{ secrets.CONSUMER_KEY }} --jwt-key-file server.key --username ${{ secrets.USERNAME }} --instance-url https://salesforce.com --alias practice
-
-      # Validate with RunLocalTests
+      - name: Authenticate to Salesforce Org
+        run: |
+          echo "${{ secrets.SFDX_JWT_KEY }}" > server.key
+          
+          sf org login jwt \
+            --client-id ${{ secrets.CONSUMER_KEY }} \
+            --jwt-key-file server.key \
+            --username ${{ secrets.USERNAME }} \
+            --instance-url https://salesforce.com  # <-- FIX THIS URL TO HTTPS
+            
+     # Validate with RunLocalTests
       - name: 'Validate Pull Request in practice1 Org | delta changes | run RunLocalTests'
         if: ${{ env.APEX_TESTS == 'RunLocalTests' }}
         run: |
