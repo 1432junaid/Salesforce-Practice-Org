@@ -55,14 +55,14 @@ jobs:
 
       - name: Authenticate to Salesforce Org
         run: |
-          echo "${{ secrets.SFDX_JWT_KEY }}" > server.key
+          echo "${{ secrets.CONSUMER_SECRET }}" > server.key
           
           sf org login jwt \
             --client-id ${{ secrets.CONSUMER_KEY }} \
             --jwt-key-file server.key \
             --username ${{ secrets.USERNAME }} \
             --instance-url https://salesforce.com  # <-- FIX THIS URL TO HTTPS
-            
+
      # Validate with RunLocalTests
       - name: 'Validate Pull Request in practice1 Org | delta changes | run RunLocalTests'
         if: ${{ env.APEX_TESTS == 'RunLocalTests' }}
