@@ -51,7 +51,7 @@ jobs:
 
       # Store server.key file for JWT Auth
       - name: 'Get JWT Key and store in server.key'
-        run: echo "${{ secrets.practice_1_SECRET_KEY }}" > server.key
+        run: echo "${{ secrets.CONSUMER_SECRET }}" > server.key
 
       # Authenticate to org
       - name: 'Authenticate to practice1 Org'
