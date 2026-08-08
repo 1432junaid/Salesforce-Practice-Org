@@ -38,7 +38,12 @@ public class AccountTriggerHandler {
         }
     }
     
-    
+    public static void checkTriggerData(List<Account> newList, List<Account> oldList, Map<Id, Account> newMap, Map<Id, Account> oldMap ){
+        System.debug('newList >> '+newList);
+        System.debug('oldList >> '+oldList);
+        System.debug('newMap >> '+newMap);
+        System.debug('oldMap >> '+oldMap);
+    }
     
     
 }
