@@ -1,0 +1,65 @@
+Here's a step-by-step guide to creating a Git Action (main.yml code) that validates a PR in Salesforce:
+
+Step 1: Define the workflow
+
+- In your GitHub repository, create a new file in the .github/workflows directory named salesforce-pr-validation.yml (or any other name you prefer)
+
+Step 2: Specify the trigger
+
+- In the salesforce-pr-validation.yml file, add the following code to specify the trigger:
+
+name: Salesforce PR Validation
+on:
+  pull_request:
+    branches:
+      - Interview-Practice
+
+This will trigger the workflow on pull requests to the main branch
+
+Step 3: Set up the Salesforce connection
+
+- Add the following code to set up the Salesforce connection:
+
+jobs:
+  validate-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Login to Salesforce Practice Org
+        uses: actions/salesforce-login@v1
+        with:
+          username: 'junaid@practice.org'
+          password: 'Atika@1432'
+          instance-url: 'https://1432junaid-dev-ed.lightning.force.com/'
+
+Replace the secrets with your actual Salesforce credentials and instance URL
+
+Step 4: Validate the PR
+
+- Add the following code to validate the PR:
+
+      - name: Validate PR
+        uses: actions/salesforce-validate-pr@v1
+        with:
+          pr-number: ${{ github.event.pull_request.number }}
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+
+This will validate the PR using the salesforce-validate-pr action
+
+Step 5: Fail the PR if validation fails
+
+- Add the following code to fail the PR if validation fails:
+
+      - name: Fail PR if validation fails
+        if: steps.validate-pr.outcome == 'failure'
+        run: |
+          github.actions/checkout@v2
+          github.actions/PR-comment@v1
+          comment: 'PR validation failed. Please fix the errors and re-submit.'
+
+This will comment on the PR and fail the workflow if validation fails
+
+Step 6: Save and test
+
+- Save the salesforce-pr-validation.yml file and test the workflow by submitting a PR to the main branch
+
+Note: This is just an example code and may need to be modified to fit your specific use case. Additionally, you'll need to create the salesforce-validate-pr action and store your Salesforce credentials as secrets in your GitHub repository.

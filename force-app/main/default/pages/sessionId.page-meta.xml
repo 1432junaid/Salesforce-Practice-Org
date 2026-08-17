@@ -5,18 +5,8 @@
     <confirmationTokenRequired>false</confirmationTokenRequired>
     <label>sessionId</label>
     <packageVersions>
-        <majorNumber>5</majorNumber>
-        <minorNumber>124</minorNumber>
-        <namespace>redwing</namespace>
-    </packageVersions>
-    <packageVersions>
         <majorNumber>1</majorNumber>
         <minorNumber>7</minorNumber>
         <namespace>sf_com_apps</namespace>
-    </packageVersions>
-    <packageVersions>
-        <majorNumber>3</majorNumber>
-        <minorNumber>7</minorNumber>
-        <namespace>trailheadapp</namespace>
     </packageVersions>
 </ApexPage>

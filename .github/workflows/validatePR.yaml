@@ -1,0 +1,77 @@
+name: Validate Pull Request in Practice Org
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+    branches: [ master ]  
+    paths:
+      - 'force-app/**'
+
+jobs:
+  validate-pr-in-practice1:
+    runs-on: ubuntu-latest
+    if: ${{ github.actor != 'dependabot[bot]' }}
+    steps:
+
+      # Checkout the source code with full history for delta tracking
+      - name: 'Checkout source code'
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 'Read PR Body'
+        env:
+          PR_BODY: ${{ github.event.pull_request.body }}
+        run: |
+          echo "$PR_BODY" > ./pr_body.txt
+          node ./parsePR.js              
+          TESTS=$(cat testsToRun.txt)       
+          echo "APEX_TESTS=$TESTS" >> $GITHUB_ENV
+
+      # Install modern Salesforce CLI
+      - name: 'Install Salesforce CLI'
+        run: |
+          npm install @salesforce/cli --global
+
+      # Install SFDX-Git-Delta plugin
+      - name: 'Installing sfdx git delta'
+        run: | 
+          echo y | sf plugins install sfdx-git-delta
+          sf plugins 
+
+      # Fetch the target branch so git can build a proper diff matrix
+      - name: 'Fetch target branch for delta calculation'
+        run: git fetch origin ${{ github.base_ref }}:${{ github.base_ref }}
+
+      # Create Delta Package using updated v6 parameters
+      - name: 'Create delta packages for new, modified or deleted metadata'
+        run: | 
+          mkdir changed-sources
+          sf sgd source delta --to "HEAD" --from "origin/${{ github.base_ref }}" --output-dir changed-sources/ --generate-delta --source-dir force-app/
+
+      # Store server.key file for JWT Auth
+      - name: 'Get JWT Key and store in server.key'
+        run: echo "${{ secrets.CONSUMER_SECRET }}" > server.key
+
+      - name: Authenticate to Salesforce Org
+        run: |
+          echo "${{ secrets.CONSUMER_SECRET }}" > server.key
+          
+          sf org login jwt \
+            --client-id ${{ secrets.CONSUMER_KEY }} \
+            --jwt-key-file server.key \
+            --username ${{ secrets.USERNAME }} \
+            --instance-url https://login.salesforce.com  # <-- FIX THIS URL TO HTTPS
+
+     # Validate with RunLocalTests
+      - name: 'Validate Pull Request in practice1 Org | delta changes | run RunLocalTests'
+        if: ${{ env.APEX_TESTS == 'RunLocalTests' }}
+        run: |
+          sf project deploy start --dry-run --source-dir changed-sources/force-app --test-level RunLocalTests --target-org practice
+              
+      # Validate with RunSpecifiedTests
+      - name: 'Validate Pull Request in practice1 Org | delta changes | run specified tests'
+        if: ${{ env.APEX_TESTS != 'RunLocalTests' }}
+        run: |
+          echo "Running specified tests: ${{ env.APEX_TESTS }}"
+          sf project deploy start --dry-run --source-dir changed-sources/force-app --test-level RunSpecifiedTests --tests ${{ env.APEX_TESTS }} --target-org practice

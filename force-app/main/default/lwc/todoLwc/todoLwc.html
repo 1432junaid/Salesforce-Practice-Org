@@ -1,0 +1,16 @@
+<template>
+    <lightning-card title="To Do List">
+        <div class="slds-scrollable" style="height:128px;padding:1rem;">
+            <div class="slds-m-around_medium">
+                <template for:each={todoList} for:item="todo">
+                    <lightning-input read-only key ={todo.id} type="text" value={todo.Task__c} variant="label-hidden" name="Task__c" ></lightning-input>
+                </template>
+            </div>
+        </div>
+
+       <div style="display:inline-flex;" class="slds-m-around_medium">
+        <lightning-input name="Task__c" placeholder="Task" onchange={handleOnChange}></lightning-input>
+        <lightning-button label="Add" variant="brand" onclick={handleOnClick}></lightning-button>
+       </div>
+    </lightning-card>
+</template>

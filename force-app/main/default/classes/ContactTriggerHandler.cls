@@ -1,5 +1,10 @@
 public class ContactTriggerHandler {
     
+    //senario : stop the insertion if contact phone number not exist in system 	
+    public static void checkContactPhone(List<Contact> ContactList){
+        
+    }
+    
     //get all account those have atleast one contact
     public static Set<Id> getAllRealtedAccountId(List<Contact> ContactList ){		
 		Set<Id> result = new Set<Id>();
