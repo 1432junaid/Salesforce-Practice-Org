@@ -1,4 +1,4 @@
-name: Validate Pull Request in Practice Org
+name: main workflow 
 
 on:
   pull_request:
@@ -61,7 +61,7 @@ jobs:
             --client-id ${{ secrets.CONSUMER_KEY }} \
             --jwt-key-file server.key \
             --username ${{ secrets.USERNAME }} \
-            --instance-url https://login.salesforce.com  # <-- FIX THIS URL TO HTTPS
+            --instance-url https://login.salesforce.com 
 
      # Validate with RunLocalTests
       - name: 'Validate Pull Request in practice1 Org | delta changes | run RunLocalTests'
